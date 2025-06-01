@@ -1,0 +1,7 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\uart.obj",
+".\Objects\lcd.obj",
+".\Objects\delay.obj" 
+TO ".\Objects\001bluetooh" 
+PRINT(".\Listings\001bluetooh.m51") RAMSIZE(256) 

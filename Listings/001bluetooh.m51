@@ -1,0 +1,399 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    05/28/2025  00:05:26  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj, .\Objects\uart.obj, .\Objects\lcd.obj, .\Objects\
+>> delay.obj TO .\Objects\001bluetooh PRINT (.\Listings\001bluetooh.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\main.obj (MAIN)
+  .\Objects\uart.obj (UART)
+  .\Objects\lcd.obj (LCD)
+  .\Objects\delay.obj (DELAY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?COPY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PRINTF)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?STRCMP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (STRNCPY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?MEMSET)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PUTCHAR)
+
+
+LINK MAP OF MODULE:  .\Objects\001bluetooh (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+                    0008H     0018H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            DATA    0022H     0049H     UNIT         _DATA_GROUP_
+            IDATA   006BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     036DH     UNIT         ?C?LIB_CODE
+            CODE    0B6DH     035CH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    0EC9H     00D8H     UNIT         ?PR?MAIN?MAIN
+            CODE    0FA1H     0052H     UNIT         ?PR?_STRNCPY?STRNCPY
+            CODE    0FF3H     0036H     UNIT         ?CO?MAIN
+            CODE    1029H     0034H     UNIT         ?PR?_RECEIVE?UART
+            CODE    105DH     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    1084H     0025H     UNIT         ?PR?_LCD_DATA?LCD
+            CODE    10A9H     0019H     UNIT         ?PR?LCD_INIT?LCD
+            CODE    10C2H     0017H     UNIT         ?PR?_BUFF_SIZE?LCD
+            CODE    10D9H     0012H     UNIT         ?PR?_LCD_CMD?LCD
+            CODE    10EBH     0012H     UNIT         ?PR?_LCD_CHAR?LCD
+            CODE    10FDH     0012H     UNIT         ?PR?_DELAY?DELAY
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/28/2025  00:05:26  PAGE 2
+
+
+            CODE    110FH     000CH     UNIT         ?C_C51STARTUP
+            CODE    111BH     000CH     UNIT         ?PR?INIT?UART
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\001bluetooh (?C_STARTUP)
+
+
+SEGMENT                           BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH     START    LENGTH
+------------------------------------------------------------------
+?C_C51STARTUP                  -----    -----      -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                  -----    -----      0022H    002AH
+  +--> ?CO?MAIN
+  +--> ?PR?LCD_INIT?LCD
+  +--> ?PR?INIT?UART
+  +--> ?PR?_LCD_CMD?LCD
+  +--> ?PR?_RECEIVE?UART
+  +--> ?PR?_BUFF_SIZE?LCD
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?_LCD_DATA?LCD
+  +--> ?PR?_DELAY?DELAY
+
+?PR?LCD_INIT?LCD               -----    -----      -----    -----
+  +--> ?PR?_LCD_CMD?LCD
+
+?PR?_LCD_CMD?LCD               -----    -----      -----    -----
+  +--> ?PR?_DELAY?DELAY
+
+?PR?_RECEIVE?UART              -----    -----      004CH    0015H
+  +--> ?PR?_STRNCPY?STRNCPY
+
+?PR?_STRNCPY?STRNCPY           -----    -----      0061H    000AH
+
+?PR?PRINTF?PRINTF              0020H.0  0001H.1    004CH    0014H
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+?PR?_LCD_DATA?LCD              -----    -----      004CH    0003H
+  +--> ?PR?_LCD_CHAR?LCD
+
+?PR?_LCD_CHAR?LCD              -----    -----      -----    -----
+  +--> ?PR?_DELAY?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\001bluetooh (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:110FH         SEGMENT       ?C_C51STARTUP
+  I:006BH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/28/2025  00:05:26  PAGE 3
+
+
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:1112H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:110FH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:110FH         LINE#         133
+  C:1111H         LINE#         134
+  C:1112H         LINE#         135
+  C:1113H         LINE#         136
+  C:1115H         LINE#         185
+  C:1118H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0EC9H         PUBLIC        main
+  C:1001H         SYMBOL        _?ix1000
+  C:1015H         SYMBOL        _?ix1001
+  -------         PROC          MAIN
+  -------         DO            
+  D:0022H         SYMBOL        buff
+  D:0036H         SYMBOL        sbuff
+  D:004AH         SYMBOL        count
+  -------         ENDDO         
+  C:0EC9H         LINE#         8
+  C:0EC9H         LINE#         9
+  C:0EC9H         LINE#         10
+  C:0EDCH         LINE#         11
+  C:0EEFH         LINE#         12
+  C:0EF4H         LINE#         13
+  C:0EF7H         LINE#         14
+  C:0EFAH         LINE#         16
+  C:0EFAH         LINE#         17
+  C:0EFAH         LINE#         18
+  C:0EFFH         LINE#         19
+  C:0F08H         LINE#         20
+  C:0F15H         LINE#         21
+  C:0F2DH         LINE#         22
+  C:0F3FH         LINE#         23
+  C:0F3FH         LINE#         24
+  C:0F44H         LINE#         26
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/28/2025  00:05:26  PAGE 4
+
+
+  C:0F53H         LINE#         27
+  C:0F62H         LINE#         28
+  C:0F62H         LINE#         29
+  C:0F6BH         LINE#         30
+  C:0F70H         LINE#         31
+  C:0F79H         LINE#         33
+  C:0F88H         LINE#         34
+  C:0F97H         LINE#         35
+  C:0F9EH         LINE#         36
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        UART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0098H.0       PUBLIC        RI
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:111BH         PUBLIC        init
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  C:1029H         PUBLIC        _receive
+  -------         PROC          INIT
+  C:111BH         LINE#         4
+  C:111BH         LINE#         5
+  C:111BH         LINE#         6
+  C:111EH         LINE#         7
+  C:1121H         LINE#         8
+  C:1124H         LINE#         9
+  C:1126H         LINE#         10
+  -------         ENDPROC       INIT
+  -------         PROC          _RECEIVE
+  D:0001H         SYMBOL        tmp_buff
+  -------         DO            
+  D:0006H         SYMBOL        t
+  D:004CH         SYMBOL        ch1
+  D:004DH         SYMBOL        buff
+  -------         ENDDO         
+  C:1029H         LINE#         21
+  C:1029H         LINE#         22
+  C:1029H         LINE#         23
+  C:102CH         LINE#         26
+  C:102CH         LINE#         27
+  C:102CH         LINE#         28
+  C:102FH         LINE#         29
+  C:1032H         LINE#         30
+  C:1034H         LINE#         31
+  C:103AH         LINE#         32
+  C:103AH         LINE#         33
+  C:103AH         LINE#         34
+  C:103AH         LINE#         35
+  C:1045H         LINE#         36
+  C:1047H         LINE#         37
+  -------         ENDPROC       _RECEIVE
+  -------         ENDMOD        UART
+
+  -------         MODULE        LCD
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/28/2025  00:05:26  PAGE 5
+
+
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:1084H         PUBLIC        _lcd_data
+  C:10EBH         PUBLIC        _lcd_char
+  C:10C2H         PUBLIC        _buff_size
+  C:10D9H         PUBLIC        _lcd_cmd
+  C:10A9H         PUBLIC        lcd_init
+  B:0080H.2       PUBLIC        en
+  B:0080H.0       PUBLIC        rs
+  B:0080H.1       PUBLIC        rw
+  -------         PROC          _LCD_CMD
+  D:0007H         SYMBOL        ch
+  C:10D9H         LINE#         11
+  C:10D9H         LINE#         12
+  C:10D9H         LINE#         13
+  C:10DBH         LINE#         14
+  C:10DDH         LINE#         15
+  C:10DFH         LINE#         16
+  C:10E1H         LINE#         17
+  C:10E8H         LINE#         18
+  C:10EAH         LINE#         20
+  -------         ENDPROC       _LCD_CMD
+  -------         PROC          LCD_INIT
+  C:10A9H         LINE#         22
+  C:10A9H         LINE#         23
+  C:10A9H         LINE#         30
+  C:10AEH         LINE#         31
+  C:10B3H         LINE#         32
+  C:10B8H         LINE#         33
+  C:10BDH         LINE#         34
+  -------         ENDPROC       LCD_INIT
+  -------         PROC          _LCD_CHAR
+  D:0007H         SYMBOL        ch
+  C:10EBH         LINE#         44
+  C:10EBH         LINE#         45
+  C:10EBH         LINE#         46
+  C:10EDH         LINE#         47
+  C:10EFH         LINE#         48
+  C:10F1H         LINE#         49
+  C:10F3H         LINE#         50
+  C:10FAH         LINE#         51
+  C:10FCH         LINE#         52
+  -------         ENDPROC       _LCD_CHAR
+  -------         PROC          _LCD_DATA
+  D:004CH         SYMBOL        ch
+  C:1084H         LINE#         57
+  C:108AH         LINE#         58
+  C:108AH         LINE#         59
+  C:1095H         LINE#         60
+  C:1095H         LINE#         61
+  C:10A6H         LINE#         62
+  C:10A8H         LINE#         64
+  -------         ENDPROC       _LCD_DATA
+  -------         PROC          _BUFF_SIZE
+  D:0001H         SYMBOL        ch
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/28/2025  00:05:26  PAGE 6
+
+
+  D:0006H         SYMBOL        count
+  -------         ENDDO         
+  C:10C2H         LINE#         66
+  C:10C2H         LINE#         67
+  C:10C2H         LINE#         68
+  C:10C5H         LINE#         69
+  C:10CAH         LINE#         70
+  C:10CAH         LINE#         71
+  C:10CFH         LINE#         72
+  C:10D6H         LINE#         73
+  C:10D8H         LINE#         74
+  C:10D8H         LINE#         76
+  -------         ENDPROC       _BUFF_SIZE
+  -------         ENDMOD        LCD
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:10FDH         PUBLIC        _delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        itime
+  -------         DO            
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:10FDH         LINE#         4
+  C:10FDH         LINE#         5
+  C:10FDH         LINE#         7
+  C:110EH         LINE#         8
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        ?C?COPY
+  C:08D0H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+  -------         MODULE        ?C?CLDPTR
+  C:08F6H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        PRINTF
+  D:004CH         PUBLIC        ?_PRINTF517?BYTE
+  D:004CH         PUBLIC        ?_PRINTF?BYTE
+  D:004CH         PUBLIC        ?_SPRINTF517?BYTE
+  D:004CH         PUBLIC        ?_SPRINTF?BYTE
+  C:0BCFH         PUBLIC        _PRINTF
+  C:0BCFH         PUBLIC        _PRINTF517
+  C:0BC9H         PUBLIC        _SPRINTF
+  C:0BC9H         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?STRCMP
+  C:0A8DH         PUBLIC        ?C?STRCMP
+  -------         ENDMOD        ?C?STRCMP
+
+  -------         MODULE        STRNCPY
+  D:0061H         PUBLIC        ?_strncpy?BYTE
+  C:0FA1H         PUBLIC        _strncpy
+  -------         ENDMOD        STRNCPY
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/28/2025  00:05:26  PAGE 7
+
+
+
+  -------         MODULE        ?C?MEMSET
+  C:0AAAH         PUBLIC        ?C?MEMSET
+  -------         ENDMOD        ?C?MEMSET
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0AD6H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:0B03H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?CSTOPTR
+  C:0B15H         PUBLIC        ?C?CSTOPTR
+  -------         ENDMOD        ?C?CSTOPTR
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:0B37H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0B47H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:105DH         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01E8H BYTE (23%) *
+******************************************************************************
+
+Program Size: data=83.1 xdata=0 code=2346
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

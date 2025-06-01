@@ -1,0 +1,61 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              05/28/2025 00:05:26 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include<string.h>
+   3          #include<stdio.h>
+   4          #include "delay.h"
+   5          #include "lcd.h"
+   6          #include "uart.h"
+   7          
+   8          void main()
+   9          {
+  10   1        unsigned char buff[20]={0};
+  11   1        unsigned char sbuff[20]={0};
+  12   1        int count = 0;
+  13   1        lcd_init();
+  14   1        init();
+  15   1        
+  16   1        while(1)
+  17   1        {
+  18   2          lcd_cmd(0x80);
+  19   2          receive(buff);
+  20   2          count = buff_size(buff);
+  21   2          sprintf(sbuff,"size:%d",count);
+  22   2          if(strcmp(buff,"clear")==0)
+  23   2          {
+  24   3            lcd_cmd(0x01);
+  25   3            // 
+  26   3            memset(buff,0,sizeof(buff));
+  27   3            memset(sbuff,0,sizeof(sbuff));
+  28   3          }
+  29   2          lcd_data(buff);
+  30   2          lcd_cmd(0xc0);
+  31   2          lcd_data(sbuff);
+  32   2          
+  33   2          memset(buff,0,sizeof(buff));
+  34   2          memset(sbuff,0,sizeof(buff));
+  35   2          delay(500);
+  36   2        }
+  37   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    216    ----
+   CONSTANT SIZE    =     54    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      42
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj" 
+TO ".\Objects\bleprj002" 
+PRINT(".\Listings\bleprj002.m51") RAMSIZE(256) 
